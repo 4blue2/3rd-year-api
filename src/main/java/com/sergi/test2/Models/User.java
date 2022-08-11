@@ -1,7 +1,7 @@
 package com.sergi.test2.Models;
 
 import javax.persistence.*;
-
+//this way you don't have to create the table by hand in MySQL workbench
 @Entity
 public class User {
 
