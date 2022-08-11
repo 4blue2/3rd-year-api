@@ -1,13 +1,27 @@
 package com.sergi.test2.Models;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column
     private int phoneNumber;
+
+    @Column
     private String firstName;
 
+    @Column
     private String lastName;
+
+    @Column
     private String address;
+
+    @Column
     private int postCode;
 
     public long getId(){
