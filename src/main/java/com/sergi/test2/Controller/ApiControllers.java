@@ -34,4 +34,21 @@ public class ApiControllers {
         userRepo.save(user);
         return "saved ...";
     }
+
+    //update functionality of the API
+    @PutMapping(value = "update/{id}")
+    public String updateUser(@PathVariable long id, @RequestBody User user){
+        User updateUser = userRepo.findById(id).get();
+
+        updateUser.setPhoneNumber(user.getPhoneNumber());
+        updateUser.setFirstName(user.getFirstName());
+        updateUser.setLastName(user.getLastName());
+        updateUser.setPostCode(user.getPostCode());
+        updateUser.setAddress(user.getAddress());
+
+        userRepo.save(updateUser);
+
+        return "Data Updated";
+    }
+
 }
