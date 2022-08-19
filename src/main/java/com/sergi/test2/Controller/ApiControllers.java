@@ -36,7 +36,7 @@ public class ApiControllers {
     }
 
     //update functionality of the API
-    @PutMapping(value = "update/{id}")
+    @PutMapping(value = "/update/{id}")
     public String updateUser(@PathVariable long id, @RequestBody User user){
         User updateUser = userRepo.findById(id).get();
 
@@ -51,4 +51,10 @@ public class ApiControllers {
         return "Data Updated";
     }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public String deleteUser(@PathVariable long id){
+        User deletedUser = userRepo.findById(id).get();
+        userRepo.delete(deletedUser);
+        return "User with id " + id + " deleted";
+    }
 }
